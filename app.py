@@ -12,9 +12,9 @@ def emp():
     try:
         conn = mysql.connect()
         cursor = conn.cursor(pymysql.cursors.DictCursor)
-        cursor.execute("SELECT id, name, email, phone, address FROM rest_emp")
-        empRows = cursor.fetchall()
-        respone = jsonify(empRows)
+        cursor.execute("SELECT id, name, email, phone FROM users")
+        usrRows = cursor.fetchall()
+        respone = jsonify(usrRows)
         respone.status_code = 200
         return respone
     except Exception as e:
